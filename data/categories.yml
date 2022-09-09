@@ -1,0 +1,66 @@
+- name: Projects
+  desc: Projects I have developed or participated.
+  folder: projects
+  items:
+    - name: Movercado
+      page: movercado
+    - name: Pulse
+      page: pulse
+    - name: VidONAIR Analytics
+      page: vidonair-analytics
+- name: Websites
+  desc: Small companies' websites I made.
+  folder: projects
+  items:
+    # - name: CHS Santo Antonio
+    #   page: chs-santo-antonio
+    - name: Techmine
+      page: techmine
+    - name: Zbit
+      page: zbit
+    - name: SanusLab
+      page: sanuslab
+- name: Prototypes
+  desc: Random prototypes I created.
+  folder: projects
+  items:
+    # - name: Hackacity Porto
+    #   page: hackacity-porto
+    - name: Operação STOP
+      page: operacao-stop
+    - name: PhyloJS
+      page: phylojs
+    - name: Patterns Academy
+      page: patterns-academy
+    - name: PortoInMotion
+      page: portoinmotion
+    - name: Foxes & Rabbits
+      page: foxes-and-rabbits
+# - name: Events
+#   desc: Small events that I helped organize.
+#   folder: events
+#   items:
+#     - name: Ciclo Palestras AlumniEI
+#       page: ciclo-palestras-alumniei
+#     - name: Improve Portugal
+#       page: improve-portugal
+- name: Slides
+  desc: Slides created by me for presentations that I gave.
+  folder: slides
+  items:
+    - name: Scala
+      page: scala
+# - name: Games
+#   desc: Simple games I have created.
+#   folder: games
+#   items:
+#     - name: Labyrinth
+#       page: labyrinth
+#     - name: Quantum
+#       page: quantum
+#     - name: BSoD Syndrome
+#       page: bsod-syndrome
+#     - name: Bricks
+#       page: bricks
+#     - name: Pong
+#       page: pong

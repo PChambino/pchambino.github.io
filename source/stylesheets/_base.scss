@@ -1,0 +1,56 @@
+* {
+  @include box-sizing(border-box);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1450px;
+}
+
+.centered {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+p a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  text-align: justify;
+}
+
+ul {
+  list-style: square;
+
+  & > li { margin-bottom: 0.5em; }
+}
+
+.icons-ul {
+  margin-left: 0;
+  padding-left: $icons-li-width;
+}
+
+.icon-li.icon-stack {
+  line-height: 1em;
+  height: 1em;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    &.small { font-size: 0.5em; }
+  }
+}
+
+.back-link {
+  display: inline-block;
+
+  img {
+    height: 2.1em;
+    vertical-align: middle;
+  }
+}

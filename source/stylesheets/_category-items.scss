@@ -1,0 +1,29 @@
+.category-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    width: 16em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    .image {
+      height: 12em;
+      margin: 1em 0;
+
+      img {
+        display: block;
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    .caption {
+      padding: 0.5em;
+
+      h4 { margin: 0; }
+    }
+  }
+}

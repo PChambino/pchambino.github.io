@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/pchambino
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://p.chambino.com
+  * I am pchambino (https://keybase.io/pchambino) on keybase.
+  * I have a public key ASBCWnNb_Zir7rzQ69ef6X5q4w7Ox4QS-K6rnu-N4W1WlAo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01011b7fbb5cd75f88518001f7781b735b4ff77e606f9f20972ef33b6fa7055d2db10a",
+            "host": "keybase.io",
+            "kid": "0120425a735bfd98abeebcd0ebd79fe97e6ae30ecec78412f8aeab9eef8de16d56940a",
+            "uid": "eda97837aee2105fd7e582faee206c19",
+            "username": "pchambino"
+        },
+        "service": {
+            "hostname": "p.chambino.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1468950076,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1468950053,
+        "hash": "11154a15d14160d627de9976eea183b6386f63d0a104c08cf25cea767354bdf2ab343235837a0e6619a698c4dc6551c3d5aeaf51bc6582733f8cb18240fca1e6",
+        "seqno": 531921
+    },
+    "prev": "1a3bc9050875f93cca3688307720608247764ddbbefc792d42eb179677f1b30d",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgQlpzW/2Yq+680OvXn+l+auMOzseEEviuq57vjeFtVpQKp3BheWxvYWTFAvd7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMWI3ZmJiNWNkNzVmODg1MTgwMDFmNzc4MWI3MzViNGZmNzdlNjA2ZjlmMjA5NzJlZjMzYjZmYTcwNTVkMmRiMTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNDI1YTczNWJmZDk4YWJlZWJjZDBlYmQ3OWZlOTdlNmFlMzBlY2VjNzg0MTJmOGFlYWI5ZWVmOGRlMTZkNTY5NDBhIiwidWlkIjoiZWRhOTc4MzdhZWUyMTA1ZmQ3ZTU4MmZhZWUyMDZjMTkiLCJ1c2VybmFtZSI6InBjaGFtYmlubyJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoicC5jaGFtYmluby5jb20iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE2In0sImN0aW1lIjoxNDY4OTUwMDc2LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0Njg5NTAwNTMsImhhc2giOiIxMTE1NGExNWQxNDE2MGQ2MjdkZTk5NzZlZWExODNiNjM4NmY2M2QwYTEwNGMwOGNmMjVjZWE3NjczNTRiZGYyYWIzNDMyMzU4MzdhMGU2NjE5YTY5OGM0ZGM2NTUxYzNkNWFlYWY1MWJjNjU4MjczM2Y4Y2IxODI0MGZjYTFlNiIsInNlcW5vIjo1MzE5MjF9LCJwcmV2IjoiMWEzYmM5MDUwODc1ZjkzY2NhMzY4ODMwNzcyMDYwODI0Nzc2NGRkYmJlZmM3OTJkNDJlYjE3OTY3N2YxYjMwZCIsInNlcW5vIjoxMCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxEBNuNomrKnvRVdXsC8B24SK4idaJWu1PDgPcCK5sSeGcOy9PRqS73VQ+Ktcno1I2fHE82dt1TlcPVohGrXVG6cKqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgcPrG6xJJhZ8pmCBgiU15fEbHe1DnPm3Ge5hidGxDb4ejdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pchambino
+
+==================================================================

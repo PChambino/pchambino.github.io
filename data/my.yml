@@ -1,0 +1,29 @@
+email: pchambino@gmail.com
+picture: me.jpg
+favicon: me.png
+
+socials:
+  - name: Twitter
+    icon: twitter
+    url: https://twitter.com/#!/p_chambino
+  - name: LinkedIn
+    icon: linkedin
+    url: http://www.linkedin.com/in/pchambino
+  - name: GitHub
+    icon: github
+    url: https://github.com/pchambino
+  - name: Email
+    icon: envelope
+    url: /mail
+  - name: CV
+    icon: file
+    url: /cv
+
+# more socials:
+# Google+:        https://plus.google.com/108440828630478160266/posts
+# Facebook:       http://www.facebook.com/pbchambino
+# Google Code:    http://code.google.com/u/pchambino
+# Assembla:       https://www.assembla.com/profile/PChambino
+# Stack Overflow: http://stackoverflow.com/users/1024756/pchambino
+# Coderwall:      http://coderwall.com/pchambino
+# Bitbucket:      https://bitbucket.org/pchambino

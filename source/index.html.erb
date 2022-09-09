@@ -1,0 +1,62 @@
+<header>
+  <div class="container">
+    <h1>
+      <div class="grid grid-pad">
+        <div class="col-1-3 centered">
+          <%= image_tag data.my.favicon, style: "height: 2.1em;" %>
+          <small>
+            <% data.my.socials.each do |social| %>
+            <a data-track="<%= social.name %>" href="<%= social.url %>">
+              <i class="icon-<%= social.icon %>"></i>
+            </a>
+            <% end %>
+          </small>
+        </div>
+        <div class="col-2-3">
+          Pedro<br>Chambino<small>software engineer</small>
+        </div>
+      </div>
+    </h1>
+  </div>
+</header>
+<% data.categories.each_with_index do |cat, i| %>
+<% dark = i % 2 == 0 ? "dark" : "light" %>
+<% light = i % 2 == 0 ? "light" : "dark" %>
+<div class="<%= dark %>">
+  <div class="container">
+    <div class="grid grid-pad">
+      <div class="col-1-3">
+        <h2><%= cat.name %><small><%= cat.desc %></small></h2>
+      </div>
+      <div class="col-2-3">
+        <ul class="category-items">
+          <% cat.items.each do |item| %>
+          <li class="<%= light %> <%= dark %>-border <%= light %>-border-hover">
+            <a href="/<%= [cat.folder, item.page] * "/" %>">
+              <div class="image">
+                <%= image_tag [cat.folder, item.page] * "/" + "/-.png" %>
+              </div>
+              <div class="caption <%= dark %>">
+                <h4><%= item.name %></h4>
+              </div>
+            </a>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<% dark = data.categories.size % 2 == 0 ? "dark" : "light" %>
+<% light = data.categories.size % 2 == 0 ? "light" : "blue" %>
+<footer class="<%= dark %>">
+  <div class="container">
+    <div class="grid grid-pad grid-last">
+      <div class="col-full">
+        <a class="pull-right" data-track="Mixpanel" href="https://mixpanel.com/f/partner" target="_blank">
+          <img src="//cdn.mxpnl.com/site_media/images/partner/badge_<%= light %>.png" alt="Mobile Analytics"/>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

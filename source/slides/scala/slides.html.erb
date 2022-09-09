@@ -1,0 +1,773 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Scala Presentation</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='/slides/scala/slides.js'></script>
+  </head>
+
+  <style>
+    .slides.template-pchambino > article {
+              transition:         transform .3s ease-out, opacity .3s ease-out;
+           -o-transition:      -o-transform .3s ease-out, opacity .3s ease-out;
+         -moz-transition:    -moz-transform .3s ease-out, opacity .3s ease-out;
+      -webkit-transition: -webkit-transform .3s ease-out, opacity .3s ease-out;
+    }
+
+    .slides.template-pchambino > article.past,
+    .slides.template-pchambino > article.next {
+      opacity: 0.2;
+    }
+
+    .slides.template-pchambino > article.far-past,
+    .slides.template-pchambino > article.far-next {
+      opacity: 0.1;
+    }
+
+    .slides.template-pchambino > article.current {
+      opacity: 1;
+    }
+
+    dt {
+      margin-top: 1em;
+      color: #333;
+    }
+
+    article.smaller dl {
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0;
+    }
+
+    @media print {
+      .slides.template-pchambino > article {
+        display: block;
+        position: static;
+        margin: 0 auto 1000px;
+
+        opacity: 1 !important;
+        box-shadow: none;
+        text-shadow: none;
+
+                transform: none !important;
+             -o-transform: none !important;
+           -moz-transform: none !important;
+        -webkit-transform: none !important;
+      }
+
+      pre {
+        box-shadow: none !important;
+      }
+    }
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-pchambino'>
+
+      <article>
+        <h1>
+          <%= image_tag "slides/scala/slides/scala-logo.png" %>
+        </h1>
+        <h3>
+          multi-paradigm: object-oriented, functional, imperative
+        </h3>
+        <p>
+          Pedro Chambino
+          <br>
+          Abr 24, 2012
+        </p>
+        <p>
+          <a href="http://p.chambino.com/slides/scala">http://p.chambino.com/slides/scala</a>
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          History
+        </h3>
+        <p>
+          Scala is a relatively recent language.
+        </p>
+        <dl>
+          <dt>2001</dt>
+          <dd>
+            design started by Martin Odersky at the École Polytechnique Fédérale de Lausanne (Switzerland)
+          </dd>
+          <dt>late 2003 - early 2004</dt>
+          <dd>
+            released on the Java platform (and on the .NET platform in June 2004)
+          </dd>
+          <dt>March 2006</dt>
+          <dd>
+            version 2.0 released (current version 2.9.2)
+          </dd>
+          <dt>17 January 2011</dt>
+          <dd>
+            the Scala team won a 5 year research grant of over €2.3 million from the European Research Council
+          </dd>
+        </dl>
+      </article>
+
+      <article>
+        <h3>
+          Hello World
+        </h3>
+<pre>
+# hello.scala
+object HelloWorld {
+  def main(args: Array[String]) {
+    println("Hello, world!")
+  }
+}
+</pre>
+<p>
+  or
+</p>
+<pre>
+# hello.scala
+object HelloWorld extends App {
+  println("Hello, world!")
+}
+</pre>
+<pre>
+  > scalac hello.scala           # compile it
+  > scala HelloWorld             # execute it
+</pre>
+      </article>
+
+      <article>
+        <h3>
+          Hello World
+        </h3>
+<pre>
+# hello.scala
+println("Hello, world!")
+</pre>
+<pre>
+  > scala hello.scala             # script it
+</pre>
+<h4>
+  Read-Eval-Print Loop
+</h4>
+<pre>
+  > scala                         # interactive shell
+  scala> 1+1
+  res0: Int = 2
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          POJO
+        </h3>
+        <p>
+          Java
+        </p>
+<pre>
+class Person {
+    private String firstName;
+    private String lastName;
+    private int    age;
+
+    public Person(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName  = lastName;
+        this.age       = age;
+    }
+
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void String getFirstName() { return this.firstName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+    public void String getLastName() { return this.lastName; }
+    public void setAge(int age) { this.age = age; }
+    public void int getAge() { return this.age; }
+}
+</pre>
+        <p>
+          Scala
+        </p>
+<pre>
+class Person(var firstName: String, var lastName: String, var age: Int)
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Interaction with Java
+        </h3>
+<pre>
+import java.util.{Date, Locale}
+import java.text.DateFormat
+import java.text.DateFormat._
+
+object FrenchDate {
+  def main(args: Array[String]) {
+    val now = new Date
+    val df = getDateInstance(LONG, Locale.FRANCE)
+    println(df format now)
+  }
+}
+</pre>
+        <dl>
+          <dt>Powerful imports</dt>
+          <dd>
+            <ul>
+              <li>
+                Import multiple classes from same package with curly
+                braces
+              <li>
+                Import wildcard is _ instead of * because * is a valid scala
+                identifier
+              <li>
+                Also imports are relative!
+            </ul>
+          </dd>
+          <dt>Syntactic Sugar</dt>
+          <dd>
+            <ul>
+              <li>
+                Methods with zero or one argument can use the infix syntax:
+                <ul>
+                  <li><code>df format now</code> equals <code>df.format(now)</code>
+                  <li><code>new Date</code> equals <code>new Date()</code>
+                </ul>
+            </ul>
+          </dd>
+        </dl>
+      </article>
+
+
+      <article>
+        <h3>
+          Variable Declaration and Inferring Type Information
+        </h3>
+<pre>
+val x = 0
+var y = 1
+var z: Any = 2
+x = 3                     // error: reassignment to val
+y = 4
+y = "5"                   // error: type mismatch
+z = "6"
+lazy val l = println("!!!")
+</pre>
+        <ul>
+          <li>
+            The <code>val</code> keyword is similar to Java's <code>final</code>
+            and doesn't allow reassignment
+          <li>
+            The <code>var</code> keyword allows reassignment however the
+            <code>y</code> variable inferred the type <code>Int</code>
+          <li>
+            The <code>Any</code> type is the root of the Scala type hierarchy
+          <li>
+            The <code>lazy</code> keyword allows the evaluation of a
+            <code>val</code> to be delayed until it's necessary
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Inferring Type Information and Generics
+        </h3>
+        <p>
+          Java
+        </p>
+<pre>
+Map&lt;Integer, String&gt; intToStringMap = new HashMap&lt;Integer, String&gt;();
+</pre>
+        <p>
+          Scala
+        </p>
+<pre>
+val intToStringMap: Map[Int, String] = new HashMap
+val intToStringMap2 = new HashMap[Int, String]
+</pre>
+        <ul>
+          <li>
+            Scala uses <code>[...]</code> for generic types parameters
+          <li>
+            Removes the need for declaring generic types parameters twice
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Everything is an object
+        </h3>
+<pre>
+  1 + 2 * 3 / x
+</pre>
+        <p>
+          consists of method calls and is equivalent to:
+        </p>
+<pre>
+  (1).+(((2).*(3))./(x))
+</pre>
+        <p>
+          this means that <code>+</code>, <code>-</code>, <code>*</code> and
+          <code>/</code> are valid identifiers in Scala
+        </p>
+      </article>
+
+      <article class="smaller">
+        <q>
+          I call it my billion-dollar mistake. It was the invention of the null reference in 1965. (...) I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement. (...)
+        </q>
+        <div class="author">
+          Tony Hoare
+        </div>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Option, Some, and None: Avoiding nulls
+        </h3>
+<pre>
+val stateCapitals = Map(
+  "Alabama" -> "Montgomery",
+  "Wyoming" -> "Cheyenne")
+
+println( "Alabama: " + stateCapitals.get("Alabama") )
+println( "Unknown: " + stateCapitals.get("Unknown") )
+println( "Alabama: " + stateCapitals.get("Alabama").get )
+println( "Wyoming: " + stateCapitals.get("Wyoming").getOrElse("Oops!") )
+println( "Unknown: " + stateCapitals.get("Unknown").getOrElse("Oops2!") )
+
+// *** Outputs ***
+// Alabama: Some(Montgomery)
+// Unknown: None
+// Alabama: Montgomery
+// Wyoming: Cheyenne
+// Unknown: Oops2!
+</pre>
+        <p>
+          A possible implementation of <code>get</code> that could be used by a concrete
+          subclass of Map:
+        </p>
+<pre>
+def get(key: A): Option[B] = {
+  if (contains(key))
+    new Some(getValue(key))
+  else
+    None
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Functions are objects too
+        </h3>
+<pre>
+object Timer {
+  def oncePerSecond(callback: () => Unit) {
+    while (true) { callback(); Thread sleep 1000 }
+  }
+
+  def timeFlies() {
+    println("time flies like an arrow...")
+  }
+
+  def main(args: Array[String]) {
+    oncePerSecond(timeFlies)
+    // or
+    oncePerSecond(() =>
+      println("time flies like an arrow..."))
+  }
+}
+</pre>
+        <ul>
+          <li>
+            <code>() => Unit</code> declares a funciton that receives zero
+            arguments and returns nothing
+          <li>
+            <code>Unit</code> type is similar to Java or C/C++
+            <code>void</code> type
+          <li>
+            <code>() => println("time flies like an arrow...")</code> declares
+            an anonymous function
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Method Default and Named Arguments
+        </h3>
+<pre>
+def joiner(strings: List[String], separator: String = " "): String =
+    strings.mkString(separator)
+
+println(joiner(List("Programming", "Scala")))
+println(joiner(strings = List("Programming", "Scala")))
+println(joiner(List("Programming", "Scala"), " "))
+println(joiner(List("Programming", "Scala"), separator = " "))
+println(joiner(strings = List("Programming", "Scala"), separator = " "))
+</pre>
+        <ul>
+          <li>
+            In contrast with Java, Scala allows default arguments
+          <li>
+            Named arguments allows to specify parameters in any order
+          <li>
+            Named arguments allows to document each parameter when calling the
+            method
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Currying
+        </h3>
+<pre>
+def concat(s1: String)(s2: String) = s1 + s2
+// alternative syntax:
+// def concat(s1: String) = (s2: String) => s1 + s2
+
+val hello = concat("Hello ")(_)
+println(hello("World")) // => Hello World
+
+// transforms a normal function into a curried function:
+def concat2(s1: String, s2: String) = s1 + s2
+val curriedConcat2 = Function.curried(concat2 _)
+</pre>
+        <ul>
+          <li>
+            Curried functions are named after mathematician
+            <span class="black">Haskell Curry</span> (from whom the Haskell language also get its
+            name)
+          <li>
+            Using the alternative syntax, the <code>(_)</code> is optional
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Scala <code>for</code> comprehensions
+        </h3>
+<pre>
+val dogBreeds = List("Doberman", "Yorkshire Terrier", "Dachshund",
+                     "Scottish Terrier", "Great Dane", "Portuguese Water Dog")
+
+for (breed <- dogBreeds)
+  println(breed)
+
+// *** Filtering ***
+
+for (
+  breed <- dogBreeds
+  if breed.contains("Terrier");
+  if !breed.startsWith("Yorkshire")
+) println(breed)
+
+// *** Yielding ***
+
+val filteredBreeds = for {
+  breed <- dogBreeds
+  if breed.contains("Terrier")
+  if !breed.startsWith("Yorkshire")
+  upcasedBreed = breed.toUpperCase()
+} yield upcasedBreed
+</pre>
+        <p>
+          No <code>break</code> or <code>continue</code>!
+        </p>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Mixins
+        </h3>
+<pre>
+trait Observer[S] {
+  def receiveUpdate(subject: S);
+}
+
+trait Subject[S] {
+  this: S =>
+  private var observers: List[Observer[S]] = Nil
+  def addObserver(observer: Observer[S]) = observers = observer :: observers
+
+  def notifyObservers() = observers.foreach(_.receiveUpdate(this))
+}
+</pre>
+        <ul>
+          <li>
+            Like Java's <code>interface</code> but with implementations
+          <li>
+            Self-type annotations (<code>this: S =></code>) removes the need for
+            casting when implementing an <code>Observer</code>
+          <li>
+            <code>::</code> is a method of <code>List</code> that adds an
+            element to the beginning of list
+          <li>
+            All methods that end in <code>:</code> when using the infix syntax
+            have to be called in reverse order
+          <li>
+            <code>Nil</code> is an empty list
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Using Traits
+        </h3>
+<pre>
+class Account(initialBalance: Double) {
+  private var currentBalance = initialBalance
+  def balance = currentBalance
+  def deposit(amount: Double)  = currentBalance += amount
+  def withdraw(amount: Double) = currentBalance -= amount
+}
+
+class ObservedAccount(initialBalance: Double)
+  extends Account(initialBalance)
+  with Subject[Account]
+{
+  override def deposit(amount: Double) = {
+    super.deposit(amount)
+    notifyObservers()
+  }
+  override def withdraw(amount: Double) = {
+    super.withdraw(amount)
+    notifyObservers()
+  }
+}
+
+class AccountReporter extends Observer[Account] {
+    def receiveUpdate(account: Account) =
+        println("Observed balance change: "+account.balance)
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Case Classes
+        </h3>
+<pre>
+// Represent expressions like: (x+x)+(7+y)
+abstract class Tree
+case class Sum(l: Tree, r: Tree) extends Tree
+case class Var(n: String) extends Tree
+case class Const(v: Int) extends Tree
+</pre>
+        <ul>
+          <li>
+            The <code>new</code> keyword is not mandatory to create instances of
+            these classes
+          <li>
+            Getter functions are automatically deﬁned for the constructor
+            parameters
+          <li>
+            Default deﬁnitions for methods equals and hashCode are provided,
+            which work on the structure of the instances and not on their
+            identity
+          <li>
+            A default deﬁnition for method toString is provided, and prints
+            the value in a "source form" (e.g. the tree for expression
+            <code>x+1</code> prints as <code>Sum(Var(x),Const(1))</code>)
+          <li>
+            Instances of these classes can be decomposed through pattern
+            matching
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Case Classes and Pattern Matching
+        </h3>
+<pre>
+type Environment = String => Int
+
+def eval(t: Tree, env: Environment): Int = t match {
+  case Sum(l, r) => eval(l, env) + eval(r, env)
+//case l Sum r => eval(l, env) + eval(r, env) // alternative syntax
+  case Var(n) => env(n)
+  case Const(v) => v
+}
+</pre>
+        <ul>
+          <li>
+            The keyword <code>type</code> declares an alias for a specified type
+          <li>
+            The <code>abstract class Tree</code> could be declared
+            <code>sealed</code> like: <code>sealed abstract class Tree</code>
+            which would allow the compiler to verify if the pattern matching was
+            exhaustive
+          <li>
+            A <code>sealed</code> class can only be inherited by classes
+            declared in the same file
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Pattern Matching
+        </h3>
+<pre>
+def countScalas(list: List[String]): Int = {
+  list match {
+    case "Scala" :: tail => countScalas(tail) + 1
+    case _ :: tail       => countScalas(tail)
+    case Nil             => 0
+  }
+}
+val langs = List("Scala", "Java", "C++", "Scala", "Python", "Ruby")
+val count = countScalas(langs)
+println(count)    // => 2
+</pre>
+        <p>
+          Matching on Type
+        </p>
+<pre>
+val sundries = List(23, "Hello", 8.5, 'q')
+
+for (sundry <- sundries) {
+  sundry match {
+    case n: Int if (n > 0) => println("got a Natural: " + n)
+    case i: Int => println("got an Integer: " + i)
+    case s: String => println("got a String: " + s)
+    case f: Double => println("got a Double: " + f)
+    case other => println("got something else: " + other)
+  }
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Actor Model of Concurrency
+        </h3>
+<pre>
+import scala.actors.Actor._
+val echoActor = actor {
+  loop {
+    receive {
+      case msg => println("received: "+msg)
+    }
+  }
+}
+echoActor ! "hello"
+echoActor ! "world!"
+</pre>
+        <ul>
+          <li>The <code>actor</code> method creates and starts a new
+            <code>Actor</code>
+          <li>
+            Messages can be sent to actors using the <code>!</code>
+            method
+          <li>
+            Messages can be any kind of object
+          <li>
+            Scala encourages the use of immutable objects, specially in
+            concurrent programming since it removes the need for semaphores
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          XML
+        </h3>
+<pre>
+val name = "Bob"
+
+val bobXML =
+&lt;person&gt;                /// &lt;person&gt;
+  &lt;name&gt;{name}&lt;/name&gt;   ///   &lt;name&gt;Bob&lt;/name&gt;
+&lt;/person&gt;               /// &lt;/person&gt;
+
+bobXML \ "name"        // => &lt;name>Bob&lt;/name&gt;
+bobXML \ "name" text   // => Bob
+(bobXML \ "name").text // => Bob
+</pre>
+      </article>
+
+      <article>
+        <h3>
+          Summary
+        </h3>
+        <ul>
+          <li>A more succinct syntax
+          <li>Interoperability with Java libraries
+          <li>More flexible method names and invocation syntax
+          <li>Better mechanisms for avoiding <code>null</code>’s
+          <li>Tuples
+          <li>First-class functions and closures
+          <li>A true mixin model
+          <li>Pattern matching
+          <li>Better separation of mutable vs. immutable objects
+          <li>A workable concurrency model
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Who uses Scala?
+        </h3>
+        <dl>
+          <dt>Foursquare</dt>
+          <dd>
+            uses Lift (web application framework) and Scala
+          </dd>
+          <dt>Twitter</dt>
+          <dd>
+            backend was converted from Ruby to Scala for performance benefits
+          </dd>
+          <dt>LinkedIn</dt>
+          <dd>
+            uses Scalatra (micro web application framework) to power its Signal API
+          </dd>
+          <dt>The Guardian (newspaper's website <a href="http://guardian.co.uk">guardian.co.uk</a>)</dt>
+          <dd>
+            switched from Java to Scala
+          </dd>
+        </dl>
+        <p>
+          And much more...
+        </p>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Bibliography
+        </h3>
+        <ul>
+          <li>
+            <b>"Introducing Scala."</b> <i>The Scala Programming Language</i>. Web. 21 Apr. 2012. &lt;<a href="http://www.scala-lang.org">http://www.scala-lang.org</a>&gt;.
+          <li>
+            <b>"Scala (programming Language)."</b> <i>Wikipedia</i>. Wikimedia Foundation, 21 Apr. 2012. Web. 21 Apr. 2012. &lt;<a href="http://en.wikipedia.org/wiki/Scala_(programming_language)">http://en.wikipedia.org/wiki/Scala_(programming_language)</a>&gt;.
+          <li>
+            Wampler, Dean, and Alex Payne. <b>"Programming Scala."</b> <i>O’Reilly Media</i>. 2008. Web. 21 Apr. 2012. &lt;<a href="http://programming-scala.labs.oreilly.com">http://programming-scala.labs.oreilly.com</a>&gt;.
+          <li>
+            Wampler, Dean. <b>"The Seductions of Scala, Part I."</b> <i>Object Mentor Blog</i>. 03 Aug. 2008. Web. 21 Apr. 2012. &lt;<a href="http://blog.objectmentor.com/articles/2008/08/03/the-seductions-of-scala-part-i">http://blog.objectmentor.com/articles/2008/08/03/the-seductions-of-scala-part-i</a>&gt;.
+          <li>
+            Wampler, Dean. <b>"The Seductions of Scala, Part II - Functional Programming."</b> <i>Object Mentor Blog</i>. 06 Aug. 2008. Web. 21 Apr. 2012. &lt;<a href="http://blog.objectmentor.com/articles/2008/08/05/the-seductions-of-scala-part-ii-functional-programming">http://blog.objectmentor.com/articles/2008/08/05/the-seductions-of-scala-part-ii-functional-programming</a>&gt;.
+          <li>
+            Wampler, Dean. <b>"The Seductions of Scala, Part III - Concurrent Programming."</b> <i>Object Mentor Blog</i>. 14 Aug. 2008. Web. 21 Apr. 2012. &lt;<a href="http://blog.objectmentor.com/articles/2008/08/14/the-seductions-of-scala-part-iii-concurrent-programming">http://blog.objectmentor.com/articles/2008/08/14/the-seductions-of-scala-part-iii-concurrent-programming</a>&gt;.
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>

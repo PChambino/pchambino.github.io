@@ -1,0 +1,26 @@
+html {
+  font-family: $helvetica;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  @include breakpoint(M)  { font-size: 14px; }
+  @include breakpoint(S)  { font-size: 18px; }
+  @include breakpoint(XS) { font-size: 14px; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  small {
+    display: block;
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
+  }
+}
+h1 { font-size: 4em; letter-spacing: normal; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4, h5, h6 { font-size: 1.5em; }
+
+.big   { font-size: 1.6em; }
+.small { font-size: 0.625em; }

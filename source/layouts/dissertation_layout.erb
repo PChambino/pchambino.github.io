@@ -1,0 +1,92 @@
+<% wrap_layout :layout do %>
+  <div class="dark">
+    <div class="container">
+      <div class="grid grid-pad">
+        <div class="col-full">
+          <a class="back-link" href="/">
+            <%= image_tag data.my.favicon %>
+            Back
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="container">
+      <div class="small">
+        <h1 style="margin-top: 0;">
+          <div class="grid grid-pad">
+            <div class="col-1-3 centered big">
+              <%= image_tag current_page.path.chomp(".html") + "/-.png", style: "height: 2.1em;" %>
+            </div>
+            <div class="col-2-3">
+              <%= current_page.data.title %>
+              <small>
+                <%= current_page.data.small %>
+              </small>
+            </div>
+          </div>
+        </h1>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="grid grid-pad">
+      <div class="col-1-3">
+        &nbsp;
+      </div>
+      <div class="col-2-3">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="grid grid-pad">
+      <div class="col-1-3">
+        &nbsp;
+      </div>
+      <div class="col-1-3">
+        <h3>Supervisors</h3>
+        <ul>
+          <% current_page.data.supervisors.each do |supervisor| %>
+          <li>
+            <%= supervisor.name %>
+            <% if supervisor.small %>
+            <small><%= supervisor.small %></small>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-1-3">
+        <h3>
+          Downloads
+          <small>updated at <%= current_page.data.downloads.updated %></small>
+        </h3>
+        <ul class="icons-ul">
+          <% current_page.data.downloads.files.each do |file| %>
+          <li>
+            <% if file.link %>
+            <a href="<%= file.link %>" target="_blank">
+            <% else %>
+            <a href="/dissertation/<%= file.file %>" target="_blank">
+            <% end %>
+              <% if file.icon.is_a? Array %>
+              <span class="icon-li icon-stack">
+                <% file.icon.each do |icon| %>
+                <i class="icon-<%= icon.icon %>" style="<%= icon.style %>"></i>
+                <% end %>
+              </span>
+              <% else %>
+              <i class="icon-li icon-<%= file.icon %>"></i>
+              <% end %>
+              <%= file.name %>
+              <% if file.small %>
+              <small><%= file.small %></small>
+              <% end %>
+            </a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

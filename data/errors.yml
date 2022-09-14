@@ -1,8 +1,0 @@
-- code: 401
-  desc: Not Authorized
-- code: 403
-  desc: Forbidden
-- code: 404
-  desc: Not Found
-- code: 500
-  desc: Internal Server Error

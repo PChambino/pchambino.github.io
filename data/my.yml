@@ -1,4 +1,3 @@
-email: pchambino@gmail.com
 picture: me.jpg
 favicon: me.png
 
@@ -14,10 +13,10 @@ socials:
     url: https://github.com/pchambino
   - name: Email
     icon: envelope
-    url: /mail
+    url: mailto:pchambino@gmail.com
   - name: CV
     icon: file
-    url: /cv
+    url: /cv.pdf
 
 # more socials:
 # Google+:        https://plus.google.com/108440828630478160266/posts

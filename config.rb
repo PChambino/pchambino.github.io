@@ -1,6 +1,7 @@
 helpers do
   def random_color
-    %w[yellow orange red magenta violet blue cyan green].sample
+    # %w[yellow orange red magenta violet blue cyan green].sample
+    "blue"
   end
 end
 
@@ -11,7 +12,5 @@ end
 activate :directory_indexes
 
 configure :build do
-  activate :asset_hash, ignore: [/^slides/]
-  activate :minify_css
-  activate :minify_javascript
+  activate :asset_hash
 end

@@ -6,7 +6,7 @@
           <%= image_tag data.my.favicon, style: "height: 2.1em;" %>
           <small>
             <% data.my.socials.each do |social| %>
-            <a data-track="<%= social.name %>" href="<%= social.url %>">
+            <a title="<%= social.name %>" href="<%= social.url %>">
               <i class="icon-<%= social.icon %>"></i>
             </a>
             <% end %>
@@ -19,6 +19,7 @@
     </h1>
   </div>
 </header>
+
 <% data.categories.each_with_index do |cat, i| %>
 <% dark = i % 2 == 0 ? "dark" : "light" %>
 <% light = i % 2 == 0 ? "light" : "dark" %>
@@ -47,16 +48,16 @@
   </div>
 </div>
 <% end %>
-<% dark = data.categories.size % 2 == 0 ? "dark" : "light" %>
-<% light = data.categories.size % 2 == 0 ? "light" : "blue" %>
-<footer class="<%= dark %>">
-  <div class="container">
-    <div class="grid grid-pad grid-last">
-      <div class="col-full">
-        <a class="pull-right" data-track="Mixpanel" href="https://mixpanel.com/f/partner" target="_blank">
-          <img src="//cdn.mxpnl.com/site_media/images/partner/badge_<%= light %>.png" alt="Mobile Analytics"/>
-        </a>
+
+<% if data.categories.any? %>
+  <% dark = data.categories.size % 2 == 0 ? "dark" : "light" %>
+  <% light = data.categories.size % 2 == 0 ? "light" : "blue" %>
+  <footer class="<%= dark %>">
+    <div class="container">
+      <div class="grid grid-pad grid-last">
+        <div class="col-full">
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+<% end %>

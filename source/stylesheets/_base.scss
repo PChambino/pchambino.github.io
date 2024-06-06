@@ -32,20 +32,6 @@ ul {
   & > li { margin-bottom: 0.5em; }
 }
 
-.icons-ul {
-  margin-left: 0;
-  padding-left: $icons-li-width;
-}
-
-.icon-li.icon-stack {
-  line-height: 1em;
-  height: 1em;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    &.small { font-size: 0.5em; }
-  }
-}
-
 .back-link {
   display: inline-block;
 

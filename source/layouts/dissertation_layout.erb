@@ -61,7 +61,7 @@
           Downloads
           <small>updated at <%= current_page.data.downloads.updated %></small>
         </h3>
-        <ul class="icons-ul">
+        <ul class="icon-ul">
           <% current_page.data.downloads.files.each do |file| %>
           <li>
             <% if file.link %>
@@ -69,15 +69,7 @@
             <% else %>
             <a href="/dissertation/<%= file.file %>" target="_blank">
             <% end %>
-              <% if file.icon.is_a? Array %>
-              <span class="icon-li icon-stack">
-                <% file.icon.each do |icon| %>
-                <i class="icon-<%= icon.icon %>" style="<%= icon.style %>"></i>
-                <% end %>
-              </span>
-              <% else %>
               <i class="icon-li icon-<%= file.icon %>"></i>
-              <% end %>
               <%= file.name %>
               <% if file.small %>
               <small><%= file.small %></small>

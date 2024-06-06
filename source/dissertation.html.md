@@ -10,32 +10,35 @@ downloads:
   updated: Jul 31, 2013
   files:
     - name: Dissertation
-      icon: book
+      icon: solid icon-book
       file: pulse.pdf
+
     - name: Long abstract
-      icon: file-text
+      icon: solid icon-file-lines
       small: English
       file: abstract-en.pdf
+
     - name: Long abstract
-      icon: file-text
+      icon: solid icon-file-lines
       small: Portuguese
       file: abstract-pt.pdf
+
     - name: Presentation
-      icon:
-        - icon: file
-        - icon: play icon-light small
-          style: "margin-top: 0.2em;"
+      icon: solid icon-file-powerpoint
       file: pulse.pptx
+
     - name: Source code
-      icon: archive
+      icon: solid icon-archive
       small: Archive
       file: pulse.zip
+
     - name: Source code
-      icon: github
+      icon: brands icon-github
       small: Github
-      link: http://github.com/pchambino/pulse
+      link: https://github.com/pchambino/pulse
+
     - name: Pulse
-      icon: android
+      icon: brands icon-android
       file: pulse.apk
 ---
 Eulerian Video Magnification is a recently presented method capable of revealing temporal variations in videos that are impossible to see with the naked eye. Using this method, it is possible to visualize the flow of blood as it fills the face. From its result, a person’s heart rate is possible to be extracted.

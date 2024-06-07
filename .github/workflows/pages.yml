@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -30,7 +30,7 @@ jobs:
       - name: Build with Middleman
         run: bin/middleman build
       - name: Upload Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'build'
 
@@ -43,4 +43,4 @@ jobs:
     steps:
       - name: Deploy Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
